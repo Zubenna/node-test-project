@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+// Local db
+// mongodb://localhost:27017/test
+
 // const Schema = mongoose.Schema;
 const  Student = mongoose.model('student', {
     name: {
