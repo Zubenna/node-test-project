@@ -27,3 +27,20 @@ form button {
 form button {
   height: 2rem;
 }
+
+/* Home */
+a {
+    font-size: 40px;
+    text-decoration: none;
+}
+
+.home-page {
+  margin: 5rem auto;
+  text-align: center;
+}
+
+/* Registration */
+
+.reg-page {
+  text-align: center;
+}

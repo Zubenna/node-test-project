@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require('dotenv');
 const routes = require("./routes/index");
+// const register = require("./routes/user")
 // const cors = require("cors");
 const app = express()
 
@@ -21,11 +22,34 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(cors(corsOptions));
 
 app.use('/api/students', routes);
+// app.use('/api/registration', register);
+
 
 app.get('/', (req, res) => {
   // res.sendFile(__dirname + '/views/index.ejs')
    res.render('index');
 })
+
+app.get('/home', (req, res) => {
+   res.render('home');
+})
+
+app.get('/registration', (req, res) => {
+   res.render('registration');
+})
+
+app.get('/login', (req, res) => {
+   res.render('login');
+})
+
+app.get('/secretPage', (req, res) => {
+  res.render('secretPage');
+})
+
+
+
+
+
 
 // Set views 
 app.set('views', './views')
@@ -59,6 +83,12 @@ connectDB();
 
 app.post('/api/students', (req, res) => {
   return res.redirect('');
+})
+
+app.post('/api/students/createUser', (req, res) => {
+})
+
+app.post('/api/students/loginUser', (req, res) => {
 } )
 
 

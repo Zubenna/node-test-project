@@ -147,8 +147,8 @@
 // /api/students/:id: GET, PUT, DELETE
 // /api/students/findName: GET
   // module.exports = app => {
-  const students = require("../controllers/student.controller");
-
+const students = require("../controllers/student.controller");
+const users = require("../controllers/user.controller");
   const router = require("express").Router();
 
   // Create a new Student
@@ -172,7 +172,10 @@
   // Delete all Student
   router.delete("/", students.deleteAll);
 
-  // app.use('/api/students', router);
-// };
+  router.post("/createUser", users.createUser);
+  
+  router.post("/loginUser", users.loginUser);
 
+  // router.get("/getUsers", users.getUsers);
+  
 module.exports = router
