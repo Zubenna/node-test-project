@@ -52,7 +52,7 @@ app.get('/secretPage', (req, res) => {
 
 
 // Set views 
-app.set('views', './views')
+// app.set('views', './views')
 app.set('view engine', 'ejs')
 
 // app.get('', (req, res) => {

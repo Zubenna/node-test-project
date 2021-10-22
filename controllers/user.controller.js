@@ -43,9 +43,11 @@ exports.loginUser = async (req, res) => {
       const validPassword = await bcrypt.compare(body.password, user.password);
       if (validPassword) {
         // res.status(200).json({ message: "Valid password" });
-        res.send("<div align ='center'><h2>Login successful</h2></div><br><br><div align='center'><a href='/secretPage'>Go to Secret Page</a></div><br>");
+        // res.send("<div align ='center'><h2>Login successful</h2></div><br><br><div align='center'><a href='/secretPage'>Go to Secret Page</a></div><br>");
+        res.redirect('/secretPage')
+        // res.render('secretPage')
       } else {
-        res.status(400).json({ error: "Invalid Password" });
+        res.status(400).json({ error: "email or Password is not correct" });
       }
     } else {
       res.status(401).json({ error: "User does not exist" });

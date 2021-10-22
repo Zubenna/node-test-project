@@ -44,3 +44,9 @@ a {
 .reg-page {
   text-align: center;
 }
+
+/* Secret Page */
+
+.s-page h1 {
+  text-align: center;
+}
