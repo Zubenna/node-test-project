@@ -20,13 +20,13 @@ const User = mongoose.model('user', {
         maxLength: 70,
         required: true,
         trim: true
-    },
-    roles: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Role"
-      }
-    ]
+    }
+    // roles: [
+    //   {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Role"
+    //   }
+    // ]
 })
 
 module.exports = { User }

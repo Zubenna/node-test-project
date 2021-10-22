@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require('dotenv');
 const routes = require("./routes/index");
+const cookieParser = require("cookie-parser");
 // const register = require("./routes/user")
 const cors = require("cors");
 const app = express()
@@ -15,11 +16,15 @@ app.use(express.static('public'))
 // app.use('./img', express.static(__dirname + 'public/img'))
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
-let corsOptions = {
+// app.use(express.urlencoded({ extended: true }));
+// let corsOptions = {
+//   origin: "http://localhost:8081"
+// };
+app.use(cookieParser())
+app.use(cors({
+  credentials: true,
   origin: "http://localhost:8081"
-};
-app.use(cors(corsOptions));
+}));
 
 app.use('/api/students', routes);
 // app.use('/api/registration', register);
@@ -46,11 +51,6 @@ app.get('/secretPage', (req, res) => {
   res.render('secretPage');
 })
 
-
-
-
-
-
 // Set views 
 // app.set('views', './views')
 app.set('view engine', 'ejs')
@@ -67,7 +67,7 @@ app.set('view engine', 'ejs')
 const connectDB = require('./config/db');
 
 // Load Config
-dotenv.config({ path: './config/config.env' });
+// dotenv.config({ path: './config/config.env' });
 
 connectDB();
 
@@ -85,10 +85,10 @@ app.post('/api/students', (req, res) => {
   return res.redirect('');
 })
 
-app.post('/api/students/createUser', (req, res) => {
+app.post('/createUser', (req, res) => {
 })
 
-app.post('/api/students/loginUser', (req, res) => {
+app.post('/loginUser', (req, res) => {
 } )
 
 
@@ -97,3 +97,17 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+
+// const express = require('express');
+// const app = express();
+
+// app.use(express.json()); 
+
+// // Import Routes
+// // const authRoute = require('./routes/index');
+
+// // Route Middlewares
+// // app.use('/api', authRoute);
+
+// const port = 3000;
+// app.listen(port, function(){console.log("Server running on localhost:" + port);});
