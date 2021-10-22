@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require('dotenv');
 const routes = require("./routes/index");
 // const register = require("./routes/user")
-// const cors = require("cors");
+const cors = require("cors");
 const app = express()
 
 // parse requests of content-type - application/json
@@ -16,10 +16,10 @@ app.use(express.static('public'))
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-// let corsOptions = {
-//   origin: "http://localhost:8081"
-// };
-// app.use(cors(corsOptions));
+let corsOptions = {
+  origin: "http://localhost:8081"
+};
+app.use(cors(corsOptions));
 
 app.use('/api/students', routes);
 // app.use('/api/registration', register);
